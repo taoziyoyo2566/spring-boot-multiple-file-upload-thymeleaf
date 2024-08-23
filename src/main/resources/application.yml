@@ -1,0 +1,17 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 210MB
+      location: ./temp
+
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 10
+        queue-capacity: 25
+        keep-alive: 60s
+  description: spring boot file upload
+  file:
+    uploads: ${HOME}/uploads # 添加文件上传的根目录

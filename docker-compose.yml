@@ -1,0 +1,13 @@
+services:
+  app:
+    image: spring-boot-file-upload
+    build: .
+    ports:
+      - "1080:8080"
+    volumes:
+      - "./logs:/home/logs"
+      - "./uploads:/home/uploads"  # 新增上传目录的绑定
+    environment:
+      TZ: 'Asia/Shanghai'
+    labels:
+      key: "taoziyoyo"
