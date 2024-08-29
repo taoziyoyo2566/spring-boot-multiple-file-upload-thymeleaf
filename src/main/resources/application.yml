@@ -14,4 +14,4 @@ spring:
         keep-alive: 60s
   description: spring boot file upload
   file:
-    uploads: ${HOME}/uploads # 添加文件上传的根目录
+    uploads: /home/uploads # 添加文件上传的根目录

@@ -1,6 +1,6 @@
 services:
   app:
-    image: spring-boot-file-upload
+    image: upload
     build: .
     ports:
       - "1080:8080"
