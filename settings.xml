@@ -8,7 +8,7 @@
     </proxies>
     <servers>
         <server>
-            <id>nexus-release</id>
+            <id>nexus-snapshot</id>
             <username>admin</username>
             <password>admin</password>
         </server>
