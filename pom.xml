@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.bezkoder</groupId>
 	<artifactId>spring-boot-multiple-file-upload-thymeleaf</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>spring-boot-multiple-file-upload-thymeleaf</name>
 	<description>Thymeleaf multiple Files Upload in Spring Boot example</description>
 	<properties>
@@ -20,9 +20,9 @@
 	<distributionManagement>
 		<repository>
 			<uniqueVersion>false</uniqueVersion>
-			<id>nexus-snapshot</id>
-			<name>nexus-snapshot</name>
-			<url>http://154.23.243.155:8081/repository/nexus-snapshot/</url>
+			<id>nexus-release</id>
+			<name>nexus-release</name>
+			<url>http://154.23.243.155:8081/repository/nexus-release/</url>
 		</repository>
 	</distributionManagement>
 	<dependencies>
