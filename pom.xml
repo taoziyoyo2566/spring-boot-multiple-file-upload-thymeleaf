@@ -2,7 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<properties>
+		<java.version>11</java.version>
+		<spring.boot.version>3.3.2</spring.boot.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -14,9 +22,33 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-multiple-file-upload-thymeleaf</name>
 	<description>Thymeleaf multiple Files Upload in Spring Boot example</description>
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<properties>
+				<maven.deploy.skip>false</maven.deploy.skip>
+			</properties>
+			<activation>
+				<property>
+					<name>release</name>
+					<value>true</value>
+				</property>
+			</activation>
+		</profile>
+		<profile>
+			<id>snapshot</id>
+			<properties>
+				<maven.deploy.skip>false</maven.deploy.skip>
+			</properties>
+			<activation>
+				<property>
+					<name>release</name>
+					<value>false</value>
+				</property>
+			</activation>
+		</profile>
+	</profiles>
 
 	<!-- 本地nexus私有库-->
 	<distributionManagement>
@@ -40,6 +72,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
 		</dependency>
 
 		<dependency>
