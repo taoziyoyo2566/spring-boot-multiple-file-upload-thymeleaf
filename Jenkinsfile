@@ -4,8 +4,8 @@ pipeline {
     environment {
         MAVEN_HOME = '/usr/share/maven'
         JAVA_HOME = '/opt/java/openjdk/'
-        NEXUS_USERNAME = credentials('DEPLOY_USER')
-        NEXUS_PASSWORD = credentials('DEPLOY_USER')
+//         NEXUS_USERNAME = credentials('DEPLOY_USER')
+//         NEXUS_PASSWORD = credentials('DEPLOY_USER')
     }
 
     parameters {
@@ -33,8 +33,14 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                script {
-                    sh "${MAVEN_HOME}/bin/mvn deploy -P${params.PROFILE} -Dversion=${params.VERSION} -Djava.version=${params.JAVA_VERSION} -s settings.xml"
+                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'DEPLOY_USER', passwordVariable: 'DEPLOY_PASS')]) {
+                    script {
+                        if (params.DEPLOY_TYPE == 'release') {
+                            sh "${MAVEN_HOME}/bin/mvn deploy -DaltDeploymentRepository=nexus-releases::default::http://154.23.243.155:8081/repository/maven-releases/ -P${params.PROFILE} -Dversion=${params.VERSION} -Djava.version=${params.JAVA_VERSION} -s settings.xml -Dusername=${DEPLOY_USER} -Dpassword=${DEPLOY_PASS}"
+                        } else {
+                            sh "${MAVEN_HOME}/bin/mvn deploy -DaltDeploymentRepository=nexus-snapshots::default::http://154.23.243.155:8081/repository/maven-snapshots/ -P${params.PROFILE} -Dversion=${params.VERSION} -Djava.version=${params.JAVA_VERSION} -s settings.xml -Dusername=${DEPLOY_USER} -Dpassword=${DEPLOY_PASS}"
+                        }
+                    }
                 }
             }
         }
