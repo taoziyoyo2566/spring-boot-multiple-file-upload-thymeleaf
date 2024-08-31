@@ -16,10 +16,10 @@ FROM amazoncorretto:17
 WORKDIR /home
 
 # Copy the built jar file from the builder stage
-COPY --from=builder /app/target/spring-boot-multiple-file-upload-thymeleaf-0.0.1-SNAPSHOT.jar .
+COPY --from=builder /app/target/multiple-file-upload-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:InitialRAMPercentage=70.0", "-XX:MinRAMPercentage=80.0", "-XX:MaxRAMPercentage=90.0", "-jar", "spring-boot-multiple-file-upload-thymeleaf-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:InitialRAMPercentage=70.0", "-XX:MinRAMPercentage=80.0", "-XX:MaxRAMPercentage=90.0", "-jar", "multiple-file-upload-0.0.1-SNAPSHOT.jar"]
 
 #ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:InitialRAMPercentage=70.0", "-XX:MinRAMPercentage=80.0", "-XX:MaxRAMPercentage=90.0", "-XX:-UseAdaptiveSizePolicy", "-XshowSettings:vm -version", "-jar", "spring-boot-multiple-file-upload-thymeleaf-0.0.1-SNAPSHOT.jar",">>","/home/logs.log"]

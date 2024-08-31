@@ -9,20 +9,26 @@
 		<version>3.3.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bezkoder</groupId>
-	<artifactId>spring-boot-multiple-file-upload-thymeleaf</artifactId>
-	<version>0.0.1</version>
+	<groupId>com.taoziyoyo</groupId>
+	<artifactId>multiple-file-upload</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-multiple-file-upload-thymeleaf</name>
 	<description>Thymeleaf multiple Files Upload in Spring Boot example</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<!-- 本地nexus私有库-->
 	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>snapshots</name>
+			<url>http://154.23.243.155:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
 		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>nexus-release</id>
-			<name>nexus-release</name>
-			<url>http://154.23.243.155:8081/repository/nexus-release/</url>
+			<id>nexus-releases</id>
+			<name>release</name>
+			<url>http://154.23.243.155:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
 	<dependencies>
@@ -64,7 +70,19 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<!--获取公共的Maven依赖库-->
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<url>http://154.23.243.155:8081/repository/maven-public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>
