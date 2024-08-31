@@ -19,7 +19,7 @@
 	</parent>
 	<groupId>com.taoziyoyo</groupId>
 	<artifactId>multiple-file-upload</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>spring-boot-multiple-file-upload-thymeleaf</name>
 	<description>Thymeleaf multiple Files Upload in Spring Boot example</description>
 
