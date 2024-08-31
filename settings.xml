@@ -108,40 +108,40 @@ under the License.
      | This is a list of authentication profiles, keyed by the server-id used within the system.
      | Authentication profiles can be used whenever maven must make a connection to a remote server.
      |-->
-<!--    <servers>-->
-<!--        <server>&lt;!&ndash; 发布版本&ndash;&gt;-->
-<!--            <id>nexus</id> &lt;!&ndash; 随意填写，但项目中repository的id得与这里一致&ndash;&gt;-->
-<!--            <username>deploy_user</username> &lt;!&ndash; 账户&ndash;&gt;-->
-<!--            <password>deploy_user</password>  &lt;!&ndash; 密码&ndash;&gt;-->
-<!--        </server>-->
-<!--        <server>&lt;!&ndash; 发布版本&ndash;&gt;-->
-<!--            <id>nexus-releases</id> &lt;!&ndash; 随意填写，但项目中repository的id得与这里一致&ndash;&gt;-->
-<!--            <username>deploy_user</username> &lt;!&ndash; 账户&ndash;&gt;-->
-<!--            <password>deploy_user</password>  &lt;!&ndash; 密码&ndash;&gt;-->
-<!--        </server>-->
-<!--        <server>&lt;!&ndash; 发布版本&ndash;&gt;-->
-<!--            <id>nexus-snapshots</id> &lt;!&ndash; 随意填写，但项目中repository的id得与这里一致&ndash;&gt;-->
-<!--            <username>deploy_user</username> &lt;!&ndash; 账户&ndash;&gt;-->
-<!--            <password>deploy_user</password>  &lt;!&ndash; 密码&ndash;&gt;-->
-<!--        </server>-->
-<!--    </servers>-->
     <servers>
-        <server>
-            <id>nexus</id>
-            <username>deploy_user</username>
-            <password>deploy_user</password>
+        <server><!-- 发布版本-->
+            <id>nexus</id> <!-- 随意填写，但项目中repository的id得与这里一致-->
+            <username>deploy_user</username> <!-- 账户-->
+            <password>deploy_user</password>  <!-- 密码-->
         </server>
-        <server>
-            <id>nexus-releases</id>
-            <username>${env.NEXUS_USERNAME}</username>
-            <password>${env.NEXUS_PASSWORD}</password>
+        <server><!-- 发布版本-->
+            <id>nexus-releases</id> <!-- 随意填写，但项目中repository的id得与这里一致-->
+            <username>deploy_user</username> <!-- 账户-->
+            <password>deploy_user</password>  <!-- 密码-->
         </server>
-        <server>
-            <id>nexus-snapshots</id>
-            <username>${env.NEXUS_USERNAME}</username>
-            <password>${env.NEXUS_PASSWORD}</password>
+        <server><!-- 发布版本-->
+            <id>nexus-snapshots</id> <!-- 随意填写，但项目中repository的id得与这里一致-->
+            <username>deploy_user</username> <!-- 账户-->
+            <password>deploy_user</password>  <!-- 密码-->
         </server>
     </servers>
+<!--    <servers>-->
+<!--        <server>-->
+<!--            <id>nexus</id>-->
+<!--            <username>deploy_user</username>-->
+<!--            <password>deploy_user</password>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <id>nexus-releases</id>-->
+<!--            <username>${env.NEXUS_USERNAME}</username>-->
+<!--            <password>${env.NEXUS_PASSWORD}</password>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <id>nexus-snapshots</id>-->
+<!--            <username>${env.NEXUS_USERNAME}</username>-->
+<!--            <password>${env.NEXUS_PASSWORD}</password>-->
+<!--        </server>-->
+<!--    </servers>-->
     <!-- mirrors
      | This is a list of mirrors to be used in downloading artifacts from remote repositories.
      |
